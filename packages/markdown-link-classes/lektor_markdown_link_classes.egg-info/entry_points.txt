@@ -1,0 +1,3 @@
+[lektor.plugins]
+markdown-link-classes = lektor_markdown_link_classes:MarkdownLinkClassesPlugin
+

@@ -1,0 +1,84 @@
+_model: poster
+---
+title: Domolab
+---
+body:
+
+#### banner ####
+image: header_danielandrade_net.jpg
+----
+height: 500-tall
+----
+contents:
+
+<div class="container lektor-intro">
+  <div class="row">
+    <div class="col-md-8">
+      <img src="logo.png" alt="Domolab" class="logo">
+      <p>
+	Domolab, est un projet qui a pour but de simplifier à moindre cout une solution domotique à base de Mysensors.
+      <p>
+        N'hésitez pas à contribuer.
+    </div>
+  </div>
+</div>
+#### text-block ####
+text:
+## La solution
+
+Domolab est un projet basé sur le projet [MySensors](https://www.mysensors.org/), celui ci permet d'avoir une solution domotique DIY.
+Le point fort de ce projet, c'est qu'il est basé sur Arduino et communique sans fils avec les capteurs.
+
+
+* <i class="feature-circle fa fa-github"></i> **Open Source**
+  MySensors est un projet Open Source
+  qui permet à chacun de contribuer et d'avoir un projet évolutif et perein dans le temps.
+
+* <i class="feature-circle fa fa-usd"></i> **Peu onéreux**
+  Le projet se veut
+  peu onéreux et indépendant en comparaison à des solutions propritaires (Fibaro, Zwave, Enoncean, etc ...)
+
+* <i class="feature-circle fa fa-code"></i> **Arduino**
+  [MySensors](https://www.mysensors.org/)
+  utilise les micro-controleurs pour sa simplicité, faible consomation (suivant le modèle) et son faible coût
+
+* <i class="feature-circle fa fa-wifi"></i> **Radio**
+  Afin de simplifier sont installation, MySensors comminique avec les capteurs par onde Radio.
+  Pour cela, il utilise le composant [NRF24L01+](https://www.nordicsemi.com/kor/Products/2.4GHz-RF/nRF24L01P) de Nordic semiconductor
+
+* <i class="feature-circle fa fa-random"></i> **Interopérable**
+ MySensors peut communiquer avec une grande
+ majorité de solutions de domotiques.
+
+* <i class="feature-circle fa fa-wrench"></i> **Evolutif**
+ Si un élement n'existe pas dans MySensors.
+ il est facile de le créer avec le couple Arduino + NRF24L01+.
+
+----
+class: two-column-list
+#### slideshow ####
+slides:
+
+##### slide #####
+description:
+Exemple de Solution MySensors (Arduino + NRF24L01+)
+-----
+image: http://forum.mysensors.org/uploads/files/1442430423394-fritzing-scene-controller-wiring_bb.png
+
+##### slide #####
+description:
+Noeuds Mysensors
+-----
+image: https://www.mysensors.org/started/network.png
+
+
+##### slide #####
+description:
+Composant Arduino Pro Mini
+-----
+image: http://www.dominicdube.com/wp-content/uploads/ArduinoProMini000b.jpg
+
+##### slide #####
+description: Composant radio NRF24L01+
+-----
+image: https://i.ytimg.com/vi/aHgxXXRwtOE/maxresdefault.jpg

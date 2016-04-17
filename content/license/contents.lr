@@ -1,0 +1,16 @@
+_model: page
+---
+title: Licence & Copyright
+---
+body:
+
+#### banner ####
+image: header.png
+#### text-block ####
+class: default
+----
+text:
+
+Ce site est généré à partir de Lektor qui est sous une licence BSD. Lektor a été créé par Armin Ronacher
+
+Le template de ce site est celui du [projet Lektor](http:/www.getlektor.com)
