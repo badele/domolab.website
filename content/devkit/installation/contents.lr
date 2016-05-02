@@ -1,0 +1,21 @@
+title: IDE Arduino
+---
+summary: Configuration de l'environement de developpement de l'IDE Arduino
+---
+sort_key: 50
+---
+body:
+
+L'IDE Arduino permet de programmer(flasher) les modules arduino qui permetront de fabriquer des capteurs ou gateway.
+
+## Installation
+
+* Télécharger la version 1.6 de l'IDE Arduino depuis le gestionaire de paquet de votre distribution ou l'installer depuis [les sources](https://www.arduino.cc/en/Main/Software)
+* Vérifier ou sont installé les librairies utilisateurs dans les préférence de l’interface Arduino ( Fichier ➤ Préférences ). <img src="preference.png" alt="Arduino préférence"/>
+* Installer le kit de developpement de **MySensors**
+ * Ouvrir un terminal
+ * ```bash
+cd ~/Arduino # Voir chemin capture écran précédente
+wget https://github.com/mysensors/Arduino/archive/master.zip
+bsdtar -xf master.zip -s'|[^/]*/||'
+```

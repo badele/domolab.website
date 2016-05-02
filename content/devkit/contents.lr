@@ -1,0 +1,9 @@
+_model: doc-page
+---
+title: Devkit
+---
+allow_comments: no
+---
+body:
+
+Cette section explique comment concevoir sa plateforme de developpement DomoLab/MySensors.

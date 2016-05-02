@@ -1,0 +1,16 @@
+title: Domolab c'est quoi
+---
+summary: Un rapide descriptif du projet Domolab
+---
+sort_key: 20
+---
+body:
+
+Domolab est un projet initié pas des membres du FabLab [LabSUD](http://http://www.labsud.org/), il est basé sur le projet MySensors, celui ci permet d'avoir une solution domotique DIY.
+Le point fort de ce projet, c'est qu'il est basé sur Arduino et communique sans fils avec les capteurs.
+
+## Les points clef de domolab
+
+ * Rendre accessible la domotique pour tous
+ * Concevoir des capteurs à faible budget
+ * Concervoir des modules domotique de A à Z

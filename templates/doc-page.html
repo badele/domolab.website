@@ -6,7 +6,7 @@
     <div class="col-sm-3">
       <ul class="tree-nav nocontent">
         <li{% if this._path == '/devkit' %} class="active"{% endif
-          %}><a href="{{ '/devkit'|url }}">Welcome</a></li>
+          %}><a href="{{ '/devkit'|url }}">Devkit</a></li>
         {% set devkit = site.get('/devkit') %}
         {% for child in devkit.children recursive %}
           <li{% if this._path == child._path %} class="active"{% endif
@@ -19,7 +19,7 @@
 
       {% if this.body.toc %}
       <div class="visible-md-block visible-lg-block">
-        <h4>This Page</h4>
+        <h4>Dans cette page</h4>
         <ul class="toc">
         {% for item in this.body.toc recursive %}
           <li><a href="#{{ item.anchor }}">{{ item.title }}</a>{%
