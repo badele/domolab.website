@@ -1,0 +1,15 @@
+title: FTDI
+---
+summary: Convertisseur USB/Serie
+---
+sort_key: 60
+---
+body:
+
+Le FTDI permet de flasher un microcontroleur(Arduino) sans passer par une liaison serie RS232 (connecteur de plus en plus rare),
+Il utilise la prise USB pour convertir les informations en liaison serie
+
+<img src="ftdi.jpg" alt="USB FTDI232" />
+
+# Cablage
+
