@@ -10,7 +10,7 @@ L'IDE Arduino permet de programmer(flasher) les modules arduino qui permetront d
 
 ## Installation
 
-* Télécharger la version 1.6 de l'IDE Arduino depuis le gestionaire de paquet de votre distribution ou l'installer depuis [les sources](https://www.arduino.cc/en/Main/Software)
+* Télécharger la version **1.6** de l'IDE Arduino depuis le gestionaire de paquet de votre distribution ou l'installer depuis [les sources](https://www.arduino.cc/en/Main/Software)
 * Vérifier ou sont installé les librairies utilisateurs dans les préférence de l’interface Arduino ( Fichier ➤ Préférences ). <img src="preference.png" alt="Arduino préférence"/>
 * Installer le kit de developpement de **MySensors**
  * Ouvrir un terminal
@@ -18,4 +18,53 @@ L'IDE Arduino permet de programmer(flasher) les modules arduino qui permetront d
 cd ~/Arduino # Voir chemin capture écran précédente
 wget https://github.com/mysensors/Arduino/archive/master.zip
 bsdtar -xf master.zip -s'|[^/]*/||'
+```
+
+Dans le repertoire `~/Arduino` vous devrez observer l'aborescence suivante
+
+```text
+~/Arduino
+├── Bootloader
+├── hardware
+│   └── MySensors
+├── libraries
+│   ├── Adafruit_BMP085
+│   ├── Adafruit_NeoPixel
+│   ├── BH1750
+│   ├── Bounce2
+│   ├── DallasTemperature
+│   ├── DHT
+│   ├── DigitalIO
+│   ├── DS3232RTC
+│   ├── EmonLib
+│   ├── Encoder
+│   ├── InterruptChain
+│   ├── IRLib
+│   ├── LiquidCrystal
+│   ├── LowPower
+│   ├── MAX6675
+│   ├── MsTimer2
+│   ├── MySensors
+│   ├── NewPing
+│   ├── NewRemoteSwitch
+│   ├── OneWire
+│   ├── PinChangeInt
+│   ├── PN532
+│   ├── PN532_I2C
+│   ├── PWF_AS3935_Lightning_Sensor
+│   ├── RemoteSensor
+│   ├── RemoteSwitch
+│   ├── RunningAverage
+│   ├── SFE_BMP180
+│   ├── sha204
+│   ├── SI7021
+│   ├── SimpleTimer
+│   ├── SPIFlash
+│   ├── Time
+│   ├── UIPEthernet
+│   ├── UTFT
+│   ├── UTFT_Buttons
+│   └── UTouch
+├── MYSBootloader
+└── NodeJsController
 ```
