@@ -1,0 +1,243 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../../static/styles.css?h=95a606d7">
+<link rel="stylesheet" href="../../../static/pygments.css">
+<title>Attachments | Documentation | Projet de domotique</title>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">DomoLab</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li class="active"><a href="../../../devkit/">Developpement Kit</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../devkit/">Devkit</a></li>
+        
+        
+          <li><a href="../../../devkit/cesquoi/">Domolab c&#39;est quoi</a>
+            
+        
+          <li><a href="../../../devkit/installation/">IDE Arduino</a>
+            
+        
+          <li><a href="../../../devkit/ftdi232/">FTDI</a>
+            
+        
+          <li><a href="../../../devkit/project/">Project</a>
+            
+        
+          <li><a href="../../../devkit/content/">Content</a>
+            
+            <ul>
+          <li><a href="../../../devkit/content/alts/">Alternatives</a>
+            
+        
+          <li class="active"><a href="../../../devkit/content/attachments/">Attachments</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../../../devkit/content/databags/">Data Bags</a>
+            
+        
+          <li><a href="../../../devkit/content/flow/">Flow</a>
+            
+        
+          <li><a href="../../../devkit/content/paths/">Paths</a>
+            
+        
+          <li><a href="../../../devkit/content/system-fields/">System Fields</a>
+            
+        
+          <li><a href="../../../devkit/content/urls/">URLs and Slugs</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../devkit/templates/">Templates</a>
+            
+        
+          <li><a href="../../../devkit/guides/">Guides</a>
+            
+        
+          <li><a href="../../../devkit/deployment/">Deployment</a>
+            
+        
+          <li><a href="../../../devkit/plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../devkit/models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../devkit/cli/">Command Line</a>
+            
+        
+          <li><a href="../../../devkit/api/">API</a>
+            
+        
+          <li><a href="../../../devkit/search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>Dans cette page</h4>
+        <ul class="toc">
+        
+          <li><a href="#attachment-types">Attachment Types</a>
+        
+          <li><a href="#metadata">Metadata</a>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Attachments</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p>Each page in Lektor can have attachments appended.  These files are stored
+directly in the page folder and become available publicly.</p>
+<h2 id="attachment-types">Attachment Types</h2><p>For the most part Lektor does not care much about what types your attachments
+are but it will specially handle some.  In particular image formats supported
+by browsers have special support for automatic thumbnailing and accessing
+basic image data.</p>
+<p>The following file formats are specially handled:</p>
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Extensions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image</td>
+<td>.jpg .jpeg .gif .png</td>
+</tr>
+<tr>
+<td>Video</td>
+<td>.avi, .mpg, .mpeg, .wmv, .ogv</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td>.mp3, .wav, .ogg</td>
+</tr>
+</tbody>
+</table>
+<h2 id="metadata">Metadata</h2><p>Attachments can also be given metadata.  For this you need to create a lektor
+content file with the same name as the attachment but with <code>.lr</code> added as
+extra extension:</p>
+<table>
+<thead><tr>
+<th>File</th>
+<th>Metadata file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sunset.jpeg</td>
+<td>sunset.jpeg.lr</td>
+</tr>
+<tr>
+<td>code.py</td>
+<td>code.py.lr</td>
+</tr>
+</tbody>
+</table>
+<p>Attachments can be <a href="../../models/attachments/" class="ref">given a default model</a> or
+a model can be explicitly given in the metadata content file with the <code>_model</code> field.</p>
+<p>Here is a basic example:</p>
+<pre><code>_model: image
+---
+description: A beautiful sunset.
+---
+photographer: Mr. Peter John Doe
+---
+copyright: 2015 by Mr. Peter John Doe
+</code></pre>
+
+
+      
+
+      
+
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/badele/domolab.website" title="DomoLab website"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/badele/domolab.website/blob/master/content/devkit/content/attachments/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License</a> •
+          Generated with <a href="https://www.getlektor.com/">lektor</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=e540307b" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'badele/domolab.website',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Ouvrir le Chat</button>');
+  </script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>

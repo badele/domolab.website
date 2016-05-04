@@ -1,0 +1,199 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../../static/styles.css?h=95a606d7">
+<link rel="stylesheet" href="../../../static/pygments.css">
+<title>rsync | Documentation | Projet de domotique</title>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../">DomoLab</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li class="active"><a href="../../../devkit/">Developpement Kit</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../../devkit/">Devkit</a></li>
+        
+        
+          <li><a href="../../../devkit/cesquoi/">Domolab c&#39;est quoi</a>
+            
+        
+          <li><a href="../../../devkit/installation/">IDE Arduino</a>
+            
+        
+          <li><a href="../../../devkit/ftdi232/">FTDI</a>
+            
+        
+          <li><a href="../../../devkit/project/">Project</a>
+            
+        
+          <li><a href="../../../devkit/content/">Content</a>
+            
+        
+          <li><a href="../../../devkit/templates/">Templates</a>
+            
+        
+          <li><a href="../../../devkit/guides/">Guides</a>
+            
+        
+          <li><a href="../../../devkit/deployment/">Deployment</a>
+            
+            <ul>
+          <li><a href="../../../devkit/deployment/ftp/">FTP</a>
+            
+        
+          <li><a href="../../../devkit/deployment/ghpages/">GitHub Pages</a>
+            
+        
+          <li class="active"><a href="../../../devkit/deployment/rsync/">rsync</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../../../devkit/deployment/travisci/">Travis-CI</a>
+            
+        </ul>
+            
+        
+          <li><a href="../../../devkit/plugins/">Plugins</a>
+            
+        
+          <li><a href="../../../devkit/models/">Data Modelling</a>
+            
+        
+          <li><a href="../../../devkit/cli/">Command Line</a>
+            
+        
+          <li><a href="../../../devkit/api/">API</a>
+            
+        
+          <li><a href="../../../devkit/search/">Search</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>Dans cette page</h4>
+        <ul class="toc">
+        
+          <li><a href="#example">Example</a>
+        
+          <li><a href="#credentials">Credentials</a>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>rsync</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <p><code>rsync://username@server/path/to/folder</code></p>
+<p>This deploys via SSH and rsync to a remote server.  This is the recommended
+way to deploy if the system supports it as it is a very fast and reliable
+way.  It uses the system's SSH config so for authentication just configure
+SSH as you would normally do.  The <code>username</code> part is optional and defaults
+to the current user that is signed into the machine or whatever is picked up
+as default from the <code>.ssh/config</code>.</p>
+<h2 id="example">Example</h2><div class="highlight"><pre><span></span><span class="k">[servers.production]</span>
+<span class="na">target</span> <span class="o">=</span> <span class="s">rsync://deploy@example.com/var/www/example.com</span>
+</pre></div>
+<h2 id="credentials">Credentials</h2><p>The <code>rsync</code> deploy method supports both username and password parameter
+though it's recommended to use <code>.ssh/config</code> and an SSH agent to secure
+the deployment.  The <code>--password</code> parameter is not supported!  Instead you
+need to use <code>--key-file</code> (<code>LEKTOR_DEPLOY_KEY_FILE</code>) or <code>--key</code>
+(<code>LEKTOR_DEPLOY_KEY</code>).  The <code>--key-file</code> is the path to an OpenSSH private
+key.</p>
+<p>If you are using <code>--key</code> you can directly copy paste the contents of a key
+into a string.  This is useful if you want to use it as an environment
+variable.  The format for the string is <code>KEY_TYPE:BASE64</code> where <code>KEY_TYPE</code>
+is the type of the key (<code>RSA</code>, <code>EC</code>, etc.) and <code>BASE64</code> is the base64 encoded
+private key without newlines or whitespace.  To find out which type your
+key is look at the first line of the key marker.  For instance <code>BEGIN EC
+PRIVATE KEY</code> indicates an <code>EC</code> key.  If no key type is defined <code>RSA</code> is
+assumed.</p>
+
+
+      
+
+      
+
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/badele/domolab.website" title="DomoLab website"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/badele/domolab.website/blob/master/content/devkit/deployment/rsync/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../../license/">License</a> •
+          Generated with <a href="https://www.getlektor.com/">lektor</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../../static/app.js?h=e540307b" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'badele/domolab.website',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Ouvrir le Chat</button>');
+  </script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
