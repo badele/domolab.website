@@ -13,4 +13,10 @@ Il utilise la prise USB pour convertir les informations en liaison serie
 
 # Cablage
 
-<img src="ftdi-arduino-pro-mini.png" alt="Cablage FTDI232" />
+## Version 1
+
+<img src="ftdi-arduino-pro-mini-v1.png" alt="Cablage FTDI232 version 1" />
+
+## Version 2
+
+<img src="ftdi-arduino-pro-mini-v2.png" alt="Cablage FTDI232 version 2" />
