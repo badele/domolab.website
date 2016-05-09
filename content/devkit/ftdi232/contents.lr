@@ -11,12 +11,26 @@ Il utilise la prise USB pour convertir les informations en liaison serie
 
 <img src="ftdi.png" alt="USB FTDI232" />
 
-# Cablage
+## Cablage
 
-## Version 1
+### Schema Fritzing
+
+<img src="ftdi-arduino-pro-mini-v2_bb-all.png" alt="Fritzing All" />
+
+<center><img src="ftdi-arduino-pro-mini-v2_bb-connector.png" alt="Fritzing Connector" /></center>
+
+
+## Exemples
+
+**Note:** Suivant l'alimentation de votre microcontroleur, selectionner le type de voltage **5V** ou **3.3V**
+
+Ci dessous des exemples avec des Arduino Pro Mini 3.3V
+
+
+### Version 1
 
 <img src="ftdi-arduino-pro-mini-v1.png" alt="Cablage FTDI232 version 1" />
 
-## Version 2
+### Version 2
 
 <img src="ftdi-arduino-pro-mini-v2.png" alt="Cablage FTDI232 version 2" />
