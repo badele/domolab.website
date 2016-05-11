@@ -1,0 +1,14 @@
+title: Gateway Serie
+---
+summary: Passerelle DomoLab/MySensors Serie
+---
+sort_key: 10
+---
+body:
+
+Cette Passerelle permet de communiquer avec un controleur via une émulation RS323 (USB). 
+Elle offre plus de possibilité par rapport aux autres paserelle MySensors 
+
+<img src="gateway-serial.png" alt="Gateway Serial" />
+
+
