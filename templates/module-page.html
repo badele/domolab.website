@@ -6,7 +6,7 @@
     <div class="col-sm-3">
       <ul class="tree-nav nocontent">
         <li{% if this._path == '/modules' %} class="active"{% endif
-          %}><a href="{{ '/modules'|url }}">Devkit</a></li>
+          %}><a href="{{ '/modules'|url }}">Modules</a></li>
         {% set modules = site.get('/modules') %}
         {% for child in modules.children recursive %}
           <li{% if this._path == child._path %} class="active"{% endif
