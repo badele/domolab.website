@@ -22,7 +22,7 @@ Il utilise la prise USB pour convertir les informations en liaison serie
 
 ## Exemples
 
-**Note:** Suivant l'alimentation de votre microcontroleur, selectionner le type de voltage **5V** ou **3.3V**
+**Note:** Suivant l'alimentation de votre microcontroleur, selectionner le type de voltage **5V** ou **3.3V** à l'aide du cavalier.
 
 Ci dessous des exemples avec des Arduino Pro Mini 3.3V
 
