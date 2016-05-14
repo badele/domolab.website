@@ -10,7 +10,7 @@ L'IDE Arduino permet de programmer(flasher) les modules arduino qui permetront d
 
 ## Installation
 
-* Télécharger la version **1.6** de l'IDE Arduino depuis le gestionaire de paquet de votre distribution ou l'installer depuis [les sources](https://www.arduino.cc/en/Main/Software)
+* Télécharger une version égale ou superieure à la version **1.5** de l'IDE Arduino depuis le gestionaire de paquet de votre distribution ou l'installer depuis [les sources](https://www.arduino.cc/en/Main/Software)
 * Vérifier ou sont installé les librairies utilisateurs dans les préférence de l’interface Arduino ( Fichier ➤ Préférences ). <img src="preference.png" alt="Arduino préférence"/>
 * Installer le kit de developpement de **MySensors**
  * Ouvrir un terminal
