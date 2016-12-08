@@ -1,0 +1,221 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../static/styles.css?h=95a606d7">
+<link rel="stylesheet" href="../../static/pygments.css">
+<title>Controleur homeassistant | Documentation | Projet de domotique</title>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../">DomoLab</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          
+            <li><a href="../../devkit/">Developpement Kit</a></li>
+          
+            <li class="active"><a href="../../modules/">Modules</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        <li><a href="../../modules/">Modules</a></li>
+        
+        
+          <li class="active"><a href="../../modules/controleur-homeassistant/">Controleur homeassistant</a>
+            
+            <ul></ul>
+            
+        
+          <li><a href="../../modules/gateway-serial/">Gateway Serie</a>
+            
+        
+      </ul>
+
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>Dans cette page</h4>
+        <ul class="toc">
+        
+          <li><a href="#installation-archlinux">Installation Archlinux</a><ul>
+          <li><a href="#partitionnement">Partitionnement</a>
+        
+          <li><a href="#preparation-du-systeme-de-fichier">Preparation du systeme de fichier</a>
+        
+          <li><a href="#installation-du-systeme">Installation du systeme</a>
+        
+          <li><a href="#mise-jours-du-systme">Mise à jours du système</a>
+        </ul>
+        
+          <li><a href="#installation-de-yaourt">Installation de yaourt</a>
+        
+          <li><a href="#installation-de-salt">Installation de Salt</a><ul>
+          <li><a href="#archlinux">Archlinux</a>
+        
+          <li><a href="#debian">Debian</a>
+        
+          <li><a href="#raspbian">Raspbian</a>
+        </ul>
+        
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="col-sm-9 doc-styling">
+      
+  
+    <h1>Controleur homeassistant</h1>
+  
+
+
+      <ul class=page-meta>
+      
+      
+      
+      </ul>
+
+      <h1 id="installation-archlinux">Installation Archlinux</h1><p>Pour les étapes suivantes, vous pouvez utiliser un convertisseur USB/SDHC, remplacer sdX par le nom du device de votre carte SD</p>
+<h2 id="partitionnement">Partitionnement</h2><div class="highlight"><pre><span></span>fdisk /dev/sdX
+</pre></div>
+<ul>
+<li>Effacer la partition avec la lettre <strong>o</strong></li>
+<li>Assurer vous que les partitions ont été éffacées avec la lettre <strong>P</strong></li>
+<li>Créer la premiere partition avec les lettres <strong>n, p, 1</strong> Appuyer <strong>la touche ENTER</strong>, saisir la taille <strong>+100M</strong> </li>
+<li>Définir le type de la premiere partition à <em>W95 FAT32 (LBA)</em> avec les lettres <strong>t, c</strong></li>
+<li>Créer la deuxieme parition avec les lettres <strong>n, p, 2</strong>, Appuyer 2 fois sur <strong>la touche ENTER</strong></li>
+<li>Sauvegarder les modifications avec la lettre <strong>w</strong></li>
+</ul>
+<h2 id="preparation-du-systeme-de-fichier">Preparation du systeme de fichier</h2><div class="highlight"><pre><span></span><span class="c1"># Boot</span>
+mkfs.vfat /dev/sdX1
+mkdir boot
+mount /dev/sdX1 boot
+
+<span class="c1"># Root</span>
+mkfs.ext4 /dev/sdX2
+mkdir root
+mount /dev/sdX2 root
+</pre></div>
+<h2 id="installation-du-systeme">Installation du systeme</h2><div class="highlight"><pre><span></span>wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+bsdtar -xpf ArchLinuxARM-rpi-2-latest.tar.gz -C root
+sync
+mv root/boot/* boot
+umount boot root
+</pre></div>
+<h2 id="mise-jours-du-systme">Mise à jours du système</h2><p>Se connecter avec le compte <strong>alarm</strong> sur le Raspberry</p>
+<div class="highlight"><pre><span></span><span class="c1"># Upgrade system</span>
+su
+date <span class="c1"># set date du jour</span>
+pacman -Sy pacman
+pacman-key --init
+pacman -S archlinux-keyring
+pacman-key --populate archlinux
+pacman -Syu --ignore filesystem
+pacman -S filesystem --force
+pacman -S sudo vim
+
+<span class="c1"># decommenter la ligne %wheel ALL=(ALL) NOPASSWD: ALL la commande ci dessous</span>
+visudo
+<span class="nb">exit</span>
+</pre></div>
+<h1 id="installation-de-yaourt">Installation de yaourt</h1><div class="highlight"><pre><span></span><span class="c1"># Install base-devel</span>
+sudo pacman -S --needed git openssh base-devel
+
+
+<span class="c1"># Install requirement yaourt (package-query) via user alarm</span>
+<span class="nb">cd</span> /tmp
+curl -k https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz -o package-query.tar.gz 
+tar -xvzf package-query.tar.gz
+<span class="nb">cd</span> package-query
+makepkg -si
+
+<span class="c1"># Install yaourt</span>
+<span class="nb">cd</span> ..
+curl -k https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz -o yaourt.tar.gz 
+tar -xvzf yaourt.tar.gz
+<span class="nb">cd</span> yaourt
+makepkg -si
+</pre></div>
+<h1 id="installation-de-salt">Installation de Salt</h1><h2 id="archlinux">Archlinux</h2><div class="highlight"><pre><span></span>yaourt -S salt-zmq
+<span class="c1"># Ajouter l&#39;ip du serveur salt dans le fichier /etc/hosts</span>
+<span class="c1"># x.x.x.x salt</span>
+<span class="c1"># Renommer le hostname et le minion_id</span>
+</pre></div>
+<h2 id="debian">Debian</h2><h2 id="raspbian">Raspbian</h2><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;deb http://archive.raspbian.org/raspbian/ stretch main&#39;</span> &gt;&gt; /etc/apt/sources.list
+<span class="nb">echo</span> <span class="s1">&#39;APT::Default-Release &quot;jessie&quot;;&#39;</span> &gt; /etc/apt/apt.conf.d/10apt
+apt-get update
+apt-get install python-zmq python-tornado/stretch salt-common/stretch
+apt-get install salt-minion/stretch
+<span class="c1"># Ajouter l&#39;ip du serveur salt dans le fichier /etc/hosts</span>
+<span class="c1"># x.x.x.x salt</span>
+<span class="c1"># Renommer le hostname et le minion_id</span>
+</pre></div>
+
+
+      
+
+      
+
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 icon-bar">
+          <a href="https://github.com/badele/domolab.website" title="DomoLab website"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://github.com/badele/domolab.website/blob/master/content/modules/controleur-homeassistant/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-8">
+          <a href="../../license/">License</a> •
+          Generated with <a href="https://www.getlektor.com/">lektor</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script type=text/javascript src="../../static/app.js?h=e540307b" charset="utf-8"></script>
+  <script>
+    ((window.gitter = {}).chat = {}).options = {
+      room: 'badele/domolab.website',
+      activationElement: null
+    };
+    document.write('<button class="js-gitter-toggle-chat-button">Ouvrir le Chat</button>');
+  </script>
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+</body>
