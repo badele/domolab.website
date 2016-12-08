@@ -14,6 +14,6 @@ pip install --editable .
 ## Edit
 ```bash
 workon lektor
-cd bruno.adele.im
+cd domolab.website
 lektor server -f webpack
 ```
