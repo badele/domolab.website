@@ -1,0 +1,117 @@
+title: Controleur homeassistant
+---
+summary: Controleur MySensors pour Homeassistant
+---
+sort_key: 10
+---
+body:
+
+# Installation Archlinux
+
+Pour les étapes suivantes, vous pouvez utiliser un convertisseur USB/SDHC, remplacer sdX par le nom du device de votre carte SD
+
+## Partitionnement
+
+```bash
+fdisk /dev/sdX
+```
+
+* Effacer la partition avec la lettre **o**
+* Assurer vous que les partitions ont été éffacées avec la lettre **P**
+* Créer la premiere partition avec les lettres **n, p, 1** Appuyer **la touche ENTER**, saisir la taille **+100M** 
+* Définir le type de la premiere partition à *W95 FAT32 (LBA)* avec les lettres **t, c**
+* Créer la deuxieme parition avec les lettres **n, p, 2**, Appuyer 2 fois sur **la touche ENTER**
+* Sauvegarder les modifications avec la lettre **w**
+
+## Preparation du systeme de fichier
+
+```bash
+# Boot
+mkfs.vfat /dev/sdX1
+mkdir boot
+mount /dev/sdX1 boot
+
+# Root
+mkfs.ext4 /dev/sdX2
+mkdir root
+mount /dev/sdX2 root
+```
+
+## Installation du systeme
+```bash
+wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+bsdtar -xpf ArchLinuxARM-rpi-2-latest.tar.gz -C root
+sync
+mv root/boot/* boot
+umount boot root
+```
+
+## Mise à jours du système
+
+Se connecter avec le compte **alarm** sur le Raspberry
+
+```bash
+# Upgrade system
+su
+date # set date du jour
+pacman -Sy pacman
+pacman-key --init
+pacman -S archlinux-keyring
+pacman-key --populate archlinux
+pacman -Syu --ignore filesystem
+pacman -S filesystem --force
+pacman -S sudo vim
+
+# decommenter la ligne %wheel ALL=(ALL) NOPASSWD: ALL la commande ci dessous
+visudo
+exit
+```
+
+# Installation de yaourt
+
+```bash
+# Install base-devel
+sudo pacman -S --needed git openssh base-devel
+
+
+# Install requirement yaourt (package-query) via user alarm
+cd /tmp
+curl -k https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz -o package-query.tar.gz 
+tar -xvzf package-query.tar.gz
+cd package-query
+makepkg -si
+
+# Install yaourt
+cd ..
+curl -k https://aur.archlinux.org/cgit/aur.git/snapshot/yaourt.tar.gz -o yaourt.tar.gz 
+tar -xvzf yaourt.tar.gz
+cd yaourt
+makepkg -si
+```
+
+# Installation de Salt
+## Archlinux
+
+```bash
+yaourt -S salt-zmq
+# Ajouter l'ip du serveur salt dans le fichier /etc/hosts
+# x.x.x.x salt
+# Renommer le hostname et le minion_id
+```
+
+## Debian
+
+## Raspbian
+
+```bash
+echo 'deb http://archive.raspbian.org/raspbian/ stretch main' >> /etc/apt/sources.list
+echo 'APT::Default-Release "jessie";' > /etc/apt/apt.conf.d/10apt
+apt-get update
+apt-get install python-zmq python-tornado/stretch salt-common/stretch
+apt-get install salt-minion/stretch
+# Ajouter l'ip du serveur salt dans le fichier /etc/hosts
+# x.x.x.x salt
+# Renommer le hostname et le minion_id
+```
+
+
