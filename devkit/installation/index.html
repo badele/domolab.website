@@ -59,7 +59,13 @@
         <h4>Dans cette page</h4>
         <ul class="toc">
         
-          <li><a href="#installation">Installation</a>
+          <li><a href="#installer-ide-arduino">Installer IDE Arduino</a>
+        
+          <li><a href="#installer-librairie-mysensors">Installer librairie MySensors</a>
+        
+          <li><a href="#installer-le-support-des-cartes">Installer le support des cartes</a>
+        
+          <li><a href="#support-module-dht">Support module DHT</a>
         
         </ul>
       </div>
@@ -80,65 +86,22 @@
       </ul>
 
       <p>L'IDE Arduino permet de programmer(flasher) les modules arduino qui permetront de fabriquer des capteurs ou gateway.</p>
-<h2 id="installation">Installation</h2><ul>
-<li>Télécharger une version égale ou superieure à la version <strong>1.5</strong> de l'IDE Arduino depuis le gestionaire de paquet de votre distribution ou l'installer depuis <a href="https://www.arduino.cc/en/Main/Software">les sources</a></li>
-<li>Vérifier ou sont installé les librairies utilisateurs dans les préférence de l’interface Arduino ( Fichier ➤ Préférences ). <img src="preference.png" alt="Arduino préférence"/></li>
-<li>Installer le kit de developpement de <strong>MySensors</strong><ul>
-<li>Ouvrir un terminal</li>
-<li><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Arduino <span class="c1"># Voir chemin capture écran précédente</span>
-wget https://github.com/mysensors/Arduino/archive/master.zip
-bsdtar -xf master.zip -s<span class="s1">&#39;|[^/]*/||&#39;</span>
-</pre></div>
-</li>
+<h2 id="installer-ide-arduino">Installer IDE Arduino</h2><p>Télécharger une version égale ou superieure à la version <strong>1.6</strong> de l'IDE Arduino depuis le gestionaire de paquet de votre distribution ou l'installer depuis <a href="https://www.arduino.cc/en/Main/Software">les sources</a></p>
+<h2 id="installer-librairie-mysensors">Installer librairie MySensors</h2><ul>
+<li>Installer le kit de developpement de <strong>MySensors</strong> <img src="install_mysensorslib-1.png" alt="Install mysensors 2"/> <img src="install_mysensorslib-2.png" alt="Install mysensors 2"/></li>
 </ul>
-</li>
+<h2 id="installer-le-support-des-cartes">Installer le support des cartes</h2><ul>
+<li>Installer le support des <strong>cartes arduino</strong> <img src="install_arduino_board-1.png" alt="Install arduino board 1"/> <img src="install_arduino_board-2.png" alt="Install arduino board 2"/></li>
 </ul>
-<p>Dans le repertoire <code>~/Arduino</code> vous devrez observer l'aborescence suivante</p>
-<div class="highlight"><pre><span></span>~/Arduino
-├── Bootloader
-├── hardware
-│   └── MySensors
-├── libraries
-│   ├── Adafruit_BMP085
-│   ├── Adafruit_NeoPixel
-│   ├── BH1750
-│   ├── Bounce2
-│   ├── DallasTemperature
-│   ├── DHT
-│   ├── DigitalIO
-│   ├── DS3232RTC
-│   ├── EmonLib
-│   ├── Encoder
-│   ├── InterruptChain
-│   ├── IRLib
-│   ├── LiquidCrystal
-│   ├── LowPower
-│   ├── MAX6675
-│   ├── MsTimer2
-│   ├── MySensors
-│   ├── NewPing
-│   ├── NewRemoteSwitch
-│   ├── OneWire
-│   ├── PinChangeInt
-│   ├── PN532
-│   ├── PN532_I2C
-│   ├── PWF_AS3935_Lightning_Sensor
-│   ├── RemoteSensor
-│   ├── RemoteSwitch
-│   ├── RunningAverage
-│   ├── SFE_BMP180
-│   ├── sha204
-│   ├── SI7021
-│   ├── SimpleTimer
-│   ├── SPIFlash
-│   ├── Time
-│   ├── UIPEthernet
-│   ├── UTFT
-│   ├── UTFT_Buttons
-│   └── UTouch
-├── MYSBootloader
-└── NodeJsController
-</pre></div>
+<h2 id="support-module-dht">Support module DHT</h2><ul>
+<li>[CODE] <a href="https://github.com/mysensors/MySensorsArduinoExamples/blob/master/examples/DhtTemperatureAndHumiditySensor/DhtTemperatureAndHumiditySensor.ino">https://github.com/mysensors/MySensorsArduinoExamples/blob/master/examples/DhtTemperatureAndHumiditySensor/DhtTemperatureAndHumiditySensor.ino</a></li>
+<li>[LIB] <a href="https://github.com/markruys/arduino-DHT/archive/master.zip">https://github.com/markruys/arduino-DHT/archive/master.zip</a></li>
+</ul>
+<p>Installtion:</p>
+<pre><code>cd ~/Arduino/libraries
+wget https://github.com/markruys/arduinso-DHT/archive/master.zip
+unzip master.zip
+</code></pre>
 
 
       

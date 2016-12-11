@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../../static/styles.css?h=95a606d7">
 <link rel="stylesheet" href="../../static/pygments.css">
-<title>Gateway Serie | Documentation | Projet de domotique</title>
+<title>Controleur MyController | Documentation | Projet de domotique</title>
 <body class="default">
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
@@ -44,23 +44,38 @@
           <li><a href="../../modules/controleur-homeassistant/">Controleur homeassistant</a>
             
         
-          <li><a href="../../modules/controleur-mycontroller/">Controleur MyController</a>
-            
-        
-          <li class="active"><a href="../../modules/gateway-serial/">Gateway Serie</a>
+          <li class="active"><a href="../../modules/controleur-mycontroller/">Controleur MyController</a>
             
             <ul></ul>
             
         
+          <li><a href="../../modules/gateway-serial/">Gateway Serie</a>
+            
+        
       </ul>
 
+      
+      <div class="visible-md-block visible-lg-block">
+        <h4>Dans cette page</h4>
+        <ul class="toc">
+        
+          <li><a href="#installation-raspbian-de-base">Installation Raspbian de base</a><ul>
+          <li><a href="#configuration-raspbian">Configuration Raspbian</a>
+        </ul>
+        
+          <li><a href="#installation-mycontroller">Installation MyController</a>
+        
+          <li><a href="#verifier-que-l-appli-s-est-lanc-avec-la-commande-ci-dessous-c-est-un-peu-long-dmarer">Verifier que l'appli s'est lancé avec la commande ci-dessous, c'est un peu long à démarer</a>
+        
+        </ul>
+      </div>
       
     </div>
 
     <div class="col-sm-9 doc-styling">
       
   
-    <h1>Gateway Serie</h1>
+    <h1>Controleur MyController</h1>
   
 
 
@@ -70,9 +85,33 @@
       
       </ul>
 
-      <p>Cette Passerelle permet de communiquer avec un controleur via une émulation RS323 (USB). 
-Elle offre plus de possibilité par rapport aux autres paserelle MySensors</p>
-<p><img src="gateway-serial.png" alt="Gateway Serial" /></p>
+      <h1 id="installation-raspbian-de-base">Installation Raspbian de base</h1><p>Télécharger la version Raspbian lite depuis cette page =&gt; <a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a></p>
+<pre><code>unzip *-raspbian-jessie-lite.zip
+FILENAME=`echo *-raspbian-jessie-lite.img` ; dd bs=4M if="$FILENAME" of=/dev/null # Remplacer /dev/null par votre carte SD
+</code></pre>
+<h2 id="configuration-raspbian">Configuration Raspbian</h2><p>Brancher un clavier et un cable HDMI sur votre téléviseur. Se connecter avec le compte <em>pi</em> et le mot de passe <em>raspberry</em>. <em>Attention le clavier est en QWERTY</em></p>
+<pre><code>sudo raspi-config
+</code></pre>
+<p>Effectuer les tâches suivantes :</p>
+<ul>
+<li>Expand Filesystem </li>
+<li>Advanced Options =&gt; Enable SSH</li>
+</ul>
+<p>Rebooter le Raspberry PI</p>
+<pre><code>sudo reboot
+</code></pre>
+<p>Vous pouvez maintenant utiliser le Raspberry PI via le reseau via le protocole SSH</p>
+<h1 id="installation-mycontroller">Installation MyController</h1><p>```
+sudo su
+apt-get update
+apt-get install oracle-java8-jdk
+cd /opt
+wget <a href="https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3.Alpha2/mycontroller-dist-standalone-0.0.3.Alpha2-bundle.tar.gz">https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3.Alpha2/mycontroller-dist-standalone-0.0.3.Alpha2-bundle.tar.gz</a>
+tar -xvzf mycontroller*.tar.gz
+cd mycontroller/bin
+./start.sh</p>
+<h1 id="verifier-que-l-appli-s-est-lanc-avec-la-commande-ci-dessous-c-est-un-peu-long-dmarer">Verifier que l'appli s'est lancé avec la commande ci-dessous, c'est un peu long à démarer</h1><p>netstat -an | grep LIST | grep 8443
+<a href="https://192.168.252.155:8433">https://192.168.252.155:8433</a></p>
 
 
       
@@ -100,7 +139,7 @@ Elle offre plus de possibilité par rapport aux autres paserelle MySensors</p>
         <div class="col-sm-4 icon-bar">
           <a href="https://github.com/badele/domolab.website" title="DomoLab website"
             ><i class="fa fa-github"></i></a>
-          <a href="https://github.com/badele/domolab.website/blob/master/content/modules/gateway-serial/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+          <a href="https://github.com/badele/domolab.website/blob/master/content/modules/controleur-mycontroller/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
         </div>
         <div class="col-sm-8">
           <a href="../../license/">License</a> •
