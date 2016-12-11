@@ -1,0 +1,51 @@
+title: Controleur MyController
+---
+summary: Controleur MyController pour MySensors (sur Raspberry PI)
+---
+sort_key: 10
+---
+body:
+
+# Installation Raspbian de base
+
+Télécharger la version Raspbian lite depuis cette page => https://www.raspberrypi.org/downloads/raspbian/
+
+```
+unzip *-raspbian-jessie-lite.zip
+FILENAME=`echo *-raspbian-jessie-lite.img` ; dd bs=4M if="$FILENAME" of=/dev/null # Remplacer /dev/null par votre carte SD
+```
+
+## Configuration Raspbian
+
+Brancher un clavier et un cable HDMI sur votre téléviseur. Se connecter avec le compte *pi* et le mot de passe *raspberry*. *Attention le clavier est en QWERTY*
+
+```
+sudo raspi-config
+```
+
+Effectuer les tâches suivantes :
+
+* Expand Filesystem 
+* Advanced Options => Enable SSH
+
+Rebooter le Raspberry PI
+```
+sudo reboot
+```
+
+Vous pouvez maintenant utiliser le Raspberry PI via le reseau via le protocole SSH
+
+# Installation MyController
+
+```
+sudo su
+apt-get update
+apt-get install oracle-java8-jdk
+cd /opt
+wget https://github.com/mycontroller-org/mycontroller/releases/download/0.0.3.Alpha2/mycontroller-dist-standalone-0.0.3.Alpha2-bundle.tar.gz
+tar -xvzf mycontroller*.tar.gz
+cd mycontroller/bin
+./start.sh
+# Verifier que l'appli s'est lancé avec la commande ci-dessous, c'est un peu long à démarer
+netstat -an | grep LIST | grep 8443
+https://192.168.252.155:8433
